@@ -1,2 +1,4 @@
-const config = require('./config');
+require('babel-polyfill');
+
+const config = require('./dist/config');
 require('./dist')(config);

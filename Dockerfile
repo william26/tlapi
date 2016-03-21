@@ -1,13 +1,14 @@
-FROM centos:centos6
+FROM node:4.4.0-slim
 
-RUN yum install -y epel-release
-RUN yum install -y nodejs npm
-
-COPY package.json /mnt/package.json
-RUN cd /mnt; npm install
+RUN apt-get clean
+RUN apt-get purge
 
 COPY . /mnt
 
-EXPOSE  3000
 WORKDIR /mnt
-CMD ["node", "index.js"]
+
+RUN npm i --production
+
+EXPOSE 3000
+
+CMD ["node", "/mnt/index.js"]
