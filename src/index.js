@@ -68,6 +68,6 @@ module.exports = function (config) {
   });
 
   app.listen(3000, function () {
-    console.log('Server running on 8080');
+    console.log('Server running on 3000');
   });
 }
